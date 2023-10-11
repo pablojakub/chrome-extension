@@ -1,0 +1,132 @@
+.Numbersection {
+    color: var(--white-color);
+    padding: 8px 8px 0px 8px;
+    font-size: 0.9rem;
+}
+
+.Numbersection > span {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.Red {
+    color: red;
+}
+
+.Completed {
+    color: #61f8c4 !important;
+}
+
+.Regular {
+    color: var(--white-color);
+}
+
+.Number {
+    color: #61f8c4;
+}
+
+.Bookmarkwrapper {
+    height: 300px;
+    max-width: 380px;
+    display: grid;
+    grid-auto-rows: 15%;
+    gap: 10px;
+    margin-top: 12px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    overscroll-behavior-block: contain;
+    position: relative;
+}
+
+.Bookmarkwrapper::after {
+    content: '';
+    position: sticky;
+    background: linear-gradient(0deg, var(--dark-color) 10%, transparent 90%);
+    width: 100%;
+    height: 25px;
+    bottom: 0;
+    z-index: 3;
+}
+
+.Snaps-block {
+    scroll-snap-type: block mandatory;
+}
+
+.Snaps-block > * {
+    scroll-snap-align: start;
+}
+
+.Bookmarkwrapper::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 8px;
+}
+
+.Bookmarkwrapper:hover::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 5px;
+    background-color: var(--darkerSecondary-color);
+}
+
+.Bookmark {
+    position: relative;
+    width: 330px;
+    height: 35px;
+    min-height: 35px;
+    padding: 4px 10px;
+    margin-right: 4px;
+    background: linear-gradient(0deg,
+        var(--darkerPrimary-color) 0px 3px, 
+        var(--primary-color) 3px 28px,
+        var(--secondary-color));
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    line-height: 2.3;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.Bookmark > a {
+    text-decoration: none;
+    color: var(--white-color);
+    padding: 0px 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.Bookmark > a::after {
+    position: absolute;
+    right: -6px;
+    top: 9px;
+    transform: rotate(-53deg);
+    content: '';
+    width: 26px;
+    height: 2px;
+    background-color: var(--darkerPrimary-color);
+    z-index: 3;
+}
+
+.Bookmark::before {
+    width: 8px;
+    aspect-ratio: 1;
+    content: '';
+    position: absolute;
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    top: 17px;
+    left: 4px;
+    background-image: url('../../public/poradnik_przedsiębiorcy-removebg-preview.png');
+}
+
+.Bookmark::after {
+    content: '';
+    position: absolute;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 15px solid var(--dark-color);
+    border-left: 10px solid transparent;
+    top: 0px;
+    right: 0px;
+  }

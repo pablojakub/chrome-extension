@@ -1,0 +1,13 @@
+.TooltipWrapper {
+    max-width: 250px;
+    height: auto;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: break-spaces;
+}
+
+.TooltipDesc {
+    font-size: 0.6rem;
+    word-break: break-all;
+    white-space: break-spaces;
+}

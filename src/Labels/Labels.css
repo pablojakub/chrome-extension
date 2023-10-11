@@ -1,0 +1,43 @@
+.LabelsGroup {
+    margin: 8px 0px 4px;
+    display: flex;
+    justify-content: space-around;
+    gap: 4px;
+}
+
+.LabelModalItem {
+    border-radius: 10px;
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color);
+    display: grid;
+    place-content: center;
+    color: var(--dark-color);
+    font-size: 0.7rem;
+    transition: background-color 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.LabelItem {
+    border-radius: 10px;
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--dark-color);
+    display: grid;
+    place-content: center;
+    color: white;
+    font-size: 0.7rem;
+    transition: background-color 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.Checked {
+    background-color: var(--primary-color);
+}
+
+.LabelItem:hover,
+.LabelModalItem:hover {
+    background-color: var(--primary-color);
+} 

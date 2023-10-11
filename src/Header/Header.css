@@ -1,0 +1,55 @@
+.MenuWrapper {
+    margin-top: 15px;
+    position: relative;
+}
+
+.Menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: calc(100% + .25rem);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0px rgba(0,0,0,.1);
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.MenuWrapper > .Button:focus + .Menu {
+    
+}
+
+.Menu-active {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+}
+
+.MenuBtn {
+    --padding: 20px;
+    width: calc(100%- var(--padding));
+    font-size: 0.8rem;
+    padding: 8px var(--padding);
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out, border-radius 200ms ease-in-out;
+}
+
+.MenuBtn:hover,
+.MenuBtn:focus-visible {
+    background-color: #b8b7b7;
+    color: var(--white-color);
+
+    &:nth-child(1 of .MenuBtn) {
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    &:nth-child(2 of .MenuBtn) {
+        border-radius: 0px 0px 5px 5px;
+    }
+} 

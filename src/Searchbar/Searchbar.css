@@ -1,0 +1,32 @@
+.SearchbarWrapper {
+    display: flex;
+    padding: 8px;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.SearchbarWrapper > svg {
+    cursor: pointer;
+}
+
+.SearchbarWrapper > svg:nth-child(3 of svg):hover {
+    fill: var(--primary-color);
+}
+
+.SearchbarInput {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    width: 0px;
+    transition: width ease-in-out 500ms, border-bottom ease-in-out 500ms ;
+}
+
+.Expanded {
+    width: 170px;
+    border-bottom: 2px solid white;
+}
+
+.SortEnabled {
+    fill: var(--primary-color);
+}
