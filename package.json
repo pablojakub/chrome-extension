@@ -23,11 +23,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "prebuild": "npm version patch",
+    "prebuild": "npm version patch && node ./src/versionUpdate.js",
     "start": "react-scripts start",
     "build": "set INLINE_RUNTIME_CHUNK=false&&craco build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mytest": "node ./src/versionUpdate.js"
   },
   "eslintConfig": {
     "extends": [

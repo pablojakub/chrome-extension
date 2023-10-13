@@ -30,7 +30,7 @@
 
 .MenuBtn {
     --padding: 20px;
-    width: calc(100%- var(--padding));
+    width: calc(100% - 2* var(--padding));
     font-size: 0.8rem;
     padding: 8px var(--padding);
     text-align: center;

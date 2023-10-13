@@ -8,9 +8,9 @@
     "default_title": "Open"
   },
   "icons": {
-      "16": "bookmark16.png",
-      "48": "bookmark48.png",
-      "128": "bookmark128.png"
+    "16": "bookmark16.png",
+    "48": "bookmark48.png",
+    "128": "bookmark128.png"
   },
   "permissions": [
     "tabs",
@@ -18,8 +18,13 @@
   ],
   "content_scripts": [
     {
-        "matches": ["http://*/*", "https://*/*"],
-        "js": ["./static/js/contentScript.js"]
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "./static/js/contentScript.js"
+      ]
     }
- ]
+  ]
 }
