@@ -1,8 +1,9 @@
 import { Bookmark, Language } from '../globalTypes';
-import './Modal.css';
+import './Modal.scss';
 import addBookmark from '../api/addBookmark.api';
 import { useMutation, useQueryClient } from 'react-query';
 import Labels from '../Labels/Labels';
+import { useState } from 'react';
  
 interface ModalProps {
     bookmark: Bookmark,
@@ -20,6 +21,7 @@ const languages: Language[] = ['csharp', 'css', 'javascript', 'typescript'];
 
 const Modal = (props: ModalProps) => {
     const queryClient = useQueryClient();
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const postBookmark = useMutation({
         mutationKey: ['postBookmark'],
@@ -28,7 +30,7 @@ const Modal = (props: ModalProps) => {
           return addBookmark(bookmark);
         },
         onSuccess: () => {
-            alert('sukces');
+            setIsSuccess(true);
             queryClient.invalidateQueries('allBookmarks');
             props.onClose();
         }
@@ -72,10 +74,14 @@ const Modal = (props: ModalProps) => {
                     </>
                 ) }
                 <Labels modalLabel onChangeLabels={(label: Array<string>) => props.onSetBookmarkLabel(label)}/>
-                <button disabled={!!props.bookmark.name === false} className='Button' onClick={(e) => {
+                <button disabled={!!props.bookmark.name === false} className='ModalBtn' onClick={(e) => {
                     e.stopPropagation();
                     postBookmark.mutate(props.bookmark)
-                }}>Potwierdź</button>
+                }}>Potwierdź
+                    <span className={`Confetti ${isSuccess ? 'Explosion' : ''}`}>
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </span>
+                </button>
             </div>
         
       </div>
