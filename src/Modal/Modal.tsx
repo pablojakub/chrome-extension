@@ -32,7 +32,7 @@ const Modal = (props: ModalProps) => {
         onSuccess: () => {
             setIsSuccess(true);
             queryClient.invalidateQueries('allBookmarks');
-            props.onClose();
+            setTimeout(() => props.onClose(), 5000);
         }
       });
 
