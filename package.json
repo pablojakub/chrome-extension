@@ -26,7 +26,7 @@
   "scripts": {
     "git": "git add . && git commit -m && git push origin",
     "version": "node ./src/versionUpdate.js",
-    "prebuild": "npm run updateVersion",
+    "prebuild": "npm run version && npm run git",
     "start": "react-scripts start",
     "build": "set INLINE_RUNTIME_CHUNK=false&&craco build",
     "test": "react-scripts test",
