@@ -24,8 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "git": "git add . && git commit -m",
-    "updateVersion": "npm version patch && node ./src/versionUpdate.js",
+    "git": "git add . && git commit -m && git push origin",
+    "version": "npm version patch && node ./src/versionUpdate.js",
     "prebuild": "npm run updateVersion",
     "start": "react-scripts start",
     "build": "set INLINE_RUNTIME_CHUNK=false&&craco build",
