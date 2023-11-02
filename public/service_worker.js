@@ -1,1 +1,0 @@
-setTimeout(() => alert('Im from service worker'), 1000)

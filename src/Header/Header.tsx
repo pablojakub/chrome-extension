@@ -5,17 +5,19 @@ import Modal from '../Modal/Modal';
 import './Header.css';
 import { ModalState } from './Header.types';
 import { useDetectClickOutside } from 'react-detect-click-outside';
+import { getLocalStorageValue } from '../Utils/UtilsDebounce';
+import { LOCAL_STORAGE_KEYS } from '../globalConstants';
 
  
 const Header = () => {
     const [bookmark, setBookmark] = useState<Bookmark>({
         url: '',
-        name: '',
-        description: '',
+        name: getLocalStorageValue(LOCAL_STORAGE_KEYS.bookmarkName),
+        description: getLocalStorageValue(LOCAL_STORAGE_KEYS.bookmarkDescription),
         timestamp: new Date(),
         label: [],
         code: {
-          codeString: '',
+          codeString: getLocalStorageValue(LOCAL_STORAGE_KEYS.bookmarkCode),
           language: 'javascript',
         }
       });

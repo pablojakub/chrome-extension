@@ -4,6 +4,9 @@ import addBookmark from '../api/addBookmark.api';
 import { useMutation, useQueryClient } from 'react-query';
 import Labels from '../Labels/Labels';
 import { useState } from 'react';
+import { resetAllLocalStorageValues } from '../Utils/UtilsDebounce';
+import { LOCAL_STORAGE_KEYS } from '../globalConstants';
+import { useDebounce } from '../Utils/useDebounce';
  
 interface ModalProps {
     bookmark: Bookmark,
@@ -33,20 +36,25 @@ const Modal = (props: ModalProps) => {
             setIsSuccess(true);
             queryClient.invalidateQueries('allBookmarks');
             setTimeout(() => props.onClose(), 5000);
+            resetAllLocalStorageValues();
         }
       });
+
+      const writeIntoLocalStorage = useDebounce((key: string) => localStorage.setItem(key, props.bookmark.name), 500);
 
     return (
         <div className='Overlay' onClick={props.onClose}>
             <div className='Modal' onClick={e => e.stopPropagation()}>
                     <label htmlFor="name" className='Label'>Name:</label>
                     <input id='name' name='name' className='Input' value={props.bookmark.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    props.onSetBookmarkName(e.target.value)
+                    props.onSetBookmarkName(e.target.value);
+                    writeIntoLocalStorage(LOCAL_STORAGE_KEYS.bookmarkName);
                 }}
                 />
                 <label htmlFor="description" className='Label'>Description:</label>
                     <input id='description' name='Description' className='Input' value={props.bookmark.description} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     props.onSetBookmarkDescription(e.target.value)
+                    writeIntoLocalStorage(LOCAL_STORAGE_KEYS.bookmarkDescription);
                 }}
                 />
                 <label htmlFor="code" className='Label'>Code:</label>
@@ -56,6 +64,7 @@ const Modal = (props: ModalProps) => {
                             codeString: e.target.value,
                         }
                     props.onSetBookmarkCode(code);
+                    writeIntoLocalStorage(LOCAL_STORAGE_KEYS.bookmarkCode);
                 }}
                 />
                 {!!props.bookmark.code?.codeString !== false && (
