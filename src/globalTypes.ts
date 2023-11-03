@@ -27,3 +27,9 @@ export enum DaysOfWeek {
     SATURDAY = 6,
     SUNDAY = 0,
 }
+
+export interface Log {
+    date: Date,
+    errorMessage: string,
+    stack: string,
+}

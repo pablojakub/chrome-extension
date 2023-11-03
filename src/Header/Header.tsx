@@ -38,7 +38,7 @@ const Header = () => {
           chrome.tabs.sendMessage(tabs[0].id || 0, { type: 'GET_DOM' }, (response: DOMMessageResponse) => {
             setBookmark({
               url: response.url,
-              name: response.title,
+              name: bookmark.name === '' ? response.title : bookmark.name,
               timestamp: new Date(),
               label: [],
             })

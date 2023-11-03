@@ -34,9 +34,9 @@ const Modal = (props: ModalProps) => {
         },
         onSuccess: () => {
             setIsSuccess(true);
+            resetAllLocalStorageValues();
             queryClient.invalidateQueries('allBookmarks');
             setTimeout(() => props.onClose(), 5000);
-            resetAllLocalStorageValues();
         }
       });
 
